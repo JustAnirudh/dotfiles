@@ -52,13 +52,13 @@ augroup markdown
 augroup END
 
 " Highlight characters that go over 80 columns (by drawing a border on the 81st)
-if exists('+colorcolumn')
-  set colorcolumn=81
-  highlight ColorColumn ctermbg=red
-else
-  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-  match OverLength /\%81v.\+/
-endif
+"if exists('+colorcolumn')
+"  set colorcolumn=81
+"  highlight ColorColumn ctermbg=red
+"else
+"  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"  match OverLength /\%81v.\+/
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 04. Vim UI                                                                 "
@@ -83,10 +83,10 @@ set tabstop=2             " tab spacing
 set softtabstop=2         " unify
 set shiftwidth=2          " indent/outdent by 2 columns
 set shiftround            " always indent/outdent to the nearest tabstop
-set expandtab             " use spaces instead of tabs
+"set expandtab             " use spaces instead of tabs
 set smartindent           " automatically insert one extra level of indentation
 set smarttab              " use tabs at the start of a line, spaces elsewhere
-set nowrap                " don't wrap text
+"set nowrap                " don't wrap text
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06. Custom Commands                                                        "
@@ -98,7 +98,18 @@ command PrettyJSON %!python -m json.tool
 
 "set tabstop=4
 "for switching between multiple tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+"nnoremap <C-Left> :tabprevious<CR>
+"nnoremap <C-Right> :tabnext<CR>
+"nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+"CTRL-Tab is next tab
+"noremap <C-Tab> :<C-U>tabnext<CR>
+"inoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+"cnoremap <C-Tab> <C-C>:tabnext<CR>
+" CTRL-SHIFT-Tab is previous tab
+"noremap <C-S-Tab> :<C-U>tabprevious<CR>
+"inoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
+"cnoremap <C-S-Tab> <C-C>:tabprevious<CR>
+
+nnoremap <C-Tab> gT
+nnoremap <C-S-Tab> gt
