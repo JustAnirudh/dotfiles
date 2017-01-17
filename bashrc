@@ -95,5 +95,5 @@ fi
 export HOMEBREW_GITHUB_API_TOKEN=3c95e1e2f769fd43fb81b1ed832fdb820c84f32d
 alias python='python3' 
 alias g++='g++ -std=c++11'
-source ~/.git-prompt.sh
+source ~/dotfiles/git-prompt.sh
 
