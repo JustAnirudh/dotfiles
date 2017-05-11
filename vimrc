@@ -113,3 +113,4 @@ command PrettyJSON %!python -m json.tool
 
 nnoremap <C-Tab> gT
 nnoremap <C-S-Tab> gt
+set tags=tags;/
